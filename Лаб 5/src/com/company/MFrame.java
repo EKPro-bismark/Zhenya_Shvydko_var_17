@@ -460,7 +460,7 @@ public class MFrame extends JFrame {
 
     public void load(){
         BufferedReader br = null;
-        File file = new File("SaveFile.txt");
+        File file = new File("Configs.txt");
         if (!file.exists()) return;
         try {
             br = new BufferedReader(new FileReader(file));
