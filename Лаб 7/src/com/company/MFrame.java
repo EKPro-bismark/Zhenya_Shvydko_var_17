@@ -634,29 +634,28 @@ public class MFrame extends JFrame {
     public void OutputDB(boolean isCat) throws SQLException {
         DB dbHandler = new DB();
         ResultSet result = dbHandler.getObj(isCat);
-        //int columns = result.getMetaData().getColumnCount();
         while(result.next()) {
             if(result.getString(4).equals("cat"))
-                Singleton.getVector().getArray().add(new Cat(Integer.parseInt(result.getString(1)), Integer.parseInt(result.getString(2)),
-                        Integer.parseInt(result.getString(3))));
+                Singleton.getVector().getArray().add(new Cat(Integer.parseInt(result.getString(2)), Integer.parseInt(result.getString(3)),
+                        Integer.parseInt(result.getString(1))));
             else if(result.getString(4).equals("dog"))
-                Singleton.getVector().getArray().add(new Dog(Integer.parseInt(result.getString(1)), Integer.parseInt(result.getString(2)),
-                        Integer.parseInt(result.getString(3))));
+                Singleton.getVector().getArray().add(new Dog(Integer.parseInt(result.getString(2)), Integer.parseInt(result.getString(3)),
+                        Integer.parseInt(result.getString(1))));
         }
         habitat.repaint();
     }
 
     public void OutputFullDB() throws SQLException {
         DB dbHandler = new DB();
+        Singleton.getVector().getArray().clear();
         ResultSet result = dbHandler.getObjs();
-        //int columns = result.getMetaData().getColumnCount();
         while(result.next()) {
             if(result.getString(4).equals("cat"))
-                Singleton.getVector().getArray().add(new Cat(Integer.parseInt(result.getString(1)), Integer.parseInt(result.getString(2)),
-                        Integer.parseInt(result.getString(3))));
+                Singleton.getVector().getArray().add(new Cat(Integer.parseInt(result.getString(2)), Integer.parseInt(result.getString(3)),
+                        Integer.parseInt(result.getString(1))));
             else if(result.getString(4).equals("dog"))
-                Singleton.getVector().getArray().add(new Dog(Integer.parseInt(result.getString(1)), Integer.parseInt(result.getString(2)),
-                        Integer.parseInt(result.getString(3))));
+                Singleton.getVector().getArray().add(new Dog(Integer.parseInt(result.getString(2)), Integer.parseInt(result.getString(3)),
+                        Integer.parseInt(result.getString(1))));
         }
         habitat.repaint();
     }
